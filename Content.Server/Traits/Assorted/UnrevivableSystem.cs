@@ -11,9 +11,9 @@ public sealed class UnrevivableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<UnrevivableComponent, CloningAttemptEvent>(OnCloningAttempt);
-        SubscribeLocalEvent<UnrevivableComponent, DefibrillationAttemptEvent>(OnDefibrillationAttempt); //HL
-        SubscribeLocalEvent<UnrevivableComponent, AnalyzeUnrevivableAttemptEvent>(OnAnalyzeUnrevivableAttempt); //HL
+        Subs.SubscribeWithRelay<UnrevivableComponent, CloningAttemptEvent>(OnCloningAttempt, held: false);
+        Subs.SubscribeWithRelay<UnrevivableComponent, DefibrillationAttemptEvent>(OnDefibrillationAttempt, held: false);
+        Subs.SubscribeWithRelay<UnrevivableComponent, AnalyzeUnrevivableAttemptEvent>(OnAnalyzeUnrevivableAttempt, held: false);
     }
 
     private void OnCloningAttempt(Entity<UnrevivableComponent> ent, ref CloningAttemptEvent args)

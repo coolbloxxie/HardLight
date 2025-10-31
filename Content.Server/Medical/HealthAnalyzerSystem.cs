@@ -267,7 +267,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (HasComp<TargetingComponent>(target))
             body = _bodySystem.GetBodyPartStatus(target);
         // Shitmed Change End
-
+        //HL START
         var attemptDefib = new DefibrillationAttemptEvent();
         RaiseLocalEvent(target, ref attemptDefib);
         var attemptAnalyze = new AnalyzeUnrevivableAttemptEvent();
@@ -275,6 +275,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         if (attemptDefib.Cancelled && !attemptAnalyze.Cancelled)
             unrevivable = true;
+        //HL END
 
         //if (TryComp<UncloneableComponent>(target, out var uncloneableComp) && uncloneableComp.Analyzable) // Frontier
             uncloneable = true; // Frontier

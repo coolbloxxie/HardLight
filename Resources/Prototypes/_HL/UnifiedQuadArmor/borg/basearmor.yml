@@ -11,16 +11,16 @@
     sprite: _HL/Objects/BorgArmor/physarmor/defaultarmor.rsi
     state: icon
     layers:
-      - map: [ "BORGARMOR" ]
+      - map: [ "HEAD" ]
   - type: Clothing
     sprite: _HL/Objects/BorgArmor/physarmor/defaultarmor.rsi
     clothingVisuals:
-      BORGARMOR:
-      - state: on-equipped-BORGARMOR
+      HEAD:
+      - state: on-equipped-HEAD
         shader: unshaded
     quickEquip: false # Has to be put on for borgs by someone else
     slots:
-    - BORGARMOR # No free NFSD tier armor for anyone who prints it.
+    - HEAD # No free NFSD tier armor for anyone who prints it.
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor

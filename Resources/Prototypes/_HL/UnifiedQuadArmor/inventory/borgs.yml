@@ -16,7 +16,7 @@
     displayName: ID
   - name: armor
     slotTexture: suit_storage
-    slotFlags: BORGARMOR
+    slotFlags: HEAD
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: head
@@ -38,7 +38,7 @@
     displayName: ID
   - name: armor
     slotTexture: suit_storage
-    slotFlags: BORGARMOR
+    slotFlags: HEAD
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: head

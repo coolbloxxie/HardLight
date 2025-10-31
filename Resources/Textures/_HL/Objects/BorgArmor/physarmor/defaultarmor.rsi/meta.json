@@ -11,19 +11,19 @@
       "name": "icon"
     },
     {
-      "name": "equipped-BORGARMOR",
+      "name": "equipped-HEAD",
       "directions": 4
     },
     {
-      "name": "equipped-BORGARMOR-default",
+      "name": "equipped-HEAD-default",
       "directions": 4
     },
     {
-      "name": "on-equipped-BORGARMOR",
+      "name": "on-equipped-HEAD",
       "directions": 4
     },
     {
-      "name": "off-equipped-BORGARMOR",
+      "name": "off-equipped-HEAD",
       "directions": 4
     }
     ]

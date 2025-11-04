@@ -115,7 +115,7 @@
     # containers removed due to missing machine board prototypes
   - type: PirateBountyItem
     id: ShipShield
-    
+
 # POI
 - type: entity
   id: ShieldGeneratorPOI

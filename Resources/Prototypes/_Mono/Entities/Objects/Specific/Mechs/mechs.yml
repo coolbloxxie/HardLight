@@ -36,7 +36,7 @@
 # S2 Mechas
 - type: entity
   id: AFInterceptor
-  parent: [ BaseMech, LightMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, LightMechMount, BaseC3ExpeditionContraband ]
   name: AF-28 "Broadsword"
   description: One of the first purpose built Armored Frames, made to engage light targets and other Armored Frames.
   components:
@@ -126,7 +126,7 @@
 
 - type: entity
   id: AFInterceptorM
-  parent: [ BaseMech, LightMultiroleMountEquipment, BaseRestrictedContraband ]
+  parent: [ BaseMech, LightMultiroleMountEquipment, BaseC3ExpeditionContraband ]
   name: AF-28-M "Halberd"
   description: A modification of the Broadsword, the Halberd sacrifices armor and speed for heavier weapon mounts.
   components:
@@ -206,7 +206,7 @@
 
 - type: entity
   id: AFInterceptorG
-  parent: [ BaseMech, LightMultiroleMountEquipment, BaseRestrictedContraband ]
+  parent: [ BaseMech, LightMultiroleMountEquipment, BaseC3ExpeditionContraband ]
   name: AF-28-G "Sabre"
   description: A modification of the Broadsword, the Sabre sacrifices it's jetpack and spaceproof shielding to function on planets. Has two hardpoints, which can carry Light or Medium hardpoints.
   components:
@@ -286,7 +286,7 @@
 #4x4 mechas
 - type: entity
   id: AFFlail
-  parent: [ BaseMech, HeavyMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, HeavyMechMount, BaseC3ExpeditionContraband ]
   name: ASF-59 "Flail"
   description: Newest mech on the market, the Armored Strike Frame is built to tackle ship-sized foes with it's oversized weapon mounts. Slow as a pig however, it tacks on generous armor plating to survive it's runs.
   components:
@@ -366,7 +366,7 @@
 
 - type: entity
   id: AFFlailE
-  parent: [ BaseMech, EWARMechMountEquipment, BaseRestrictedContraband ]
+  parent: [ BaseMech, EWARMechMountEquipment, BaseC3ExpeditionContraband ]
   name: ASF-59-E "Spyglass"
   description: An extremely specialized mech based off the Flail Chassis. Uses sophisticated radar systems to provide command and control capabilities, in addition to employing advanced EWAR weaponry.
   components:
@@ -446,7 +446,7 @@
 
 - type: entity
   id: AFMace
-  parent: [ BaseMech, HeavyMechMount, BaseRestrictedContraband ]
+  parent: [ BaseMech, HeavyMechMount, BaseC3ExpeditionContraband ]
   name: ASF-59-B "Mace"
   description: A haphazard refit, armor plating is stripped off to add oversized boosters to the machine. Due to the power constraints, it can only equip a single weapon, limiting versatilty. Fits Heavy Mounts.
   components:

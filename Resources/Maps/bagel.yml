@@ -142271,7 +142271,7 @@ entities:
     - type: Transform
       pos: 34.5,-36.5
       parent: 2
-- proto: SpawnPointCaptain
+- proto: SpawnPointStationCaptain
   entities:
   - uid: 22184
     components:

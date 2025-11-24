@@ -16,6 +16,7 @@ namespace Content.Server.Abilities.Chitinid;
 public sealed partial class ChitinidSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly Content.Shared.Charges.Systems.SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -47,10 +48,12 @@ public sealed partial class ChitinidSystem : EntitySystem
             if (_damageable.TryChangeDamage(uid, chitinid.Healing, damageable: damageable) is {} delta)
             {
                 chitinid.AmountAbsorbed += -delta.GetTotal().Float();
-                if (chitinid.ChitziteAction != null && chitinid.AmountAbsorbed >= chitinid.MaximumAbsorbed)
+                if (!string.IsNullOrEmpty(chitinid.ChitziteActionId) && chitinid.AmountAbsorbed >= chitinid.MaximumAbsorbed)
                 {
-                    _actions.SetCharges(chitinid.ChitziteAction, 1); // You get the charge back and that's it. Tough.
-                    _actions.SetEnabled(chitinid.ChitziteAction, true);
+                    if (chitinid.ChitziteAction is { } action)
+                    {
+                        _charges.SetCharges(action, 1); // You get the charge back and that's it. Tough.
+                    }
                 }
             }
         }

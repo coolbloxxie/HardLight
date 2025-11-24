@@ -1,7 +1,6 @@
 using Content.Server.Abilities.Chitinid;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Shared._DV.Chemistry.Components; // DeltaV
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
@@ -168,7 +167,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
         actualDelay += injector.Comp.DelayPerVolume * FixedPoint2.Max(0, amountToInject - injector.Comp.MinimumTransferAmount).Double();
 
         // Ensure that minimum delay before incapacitation checks is 1 seconds
-        actualDelay = MathHelper.Max(actualDelay, TimeSpan.FromSeconds(1));
+        var minimumDelay = TimeSpan.FromSeconds(1);
+        actualDelay = actualDelay < minimumDelay ? minimumDelay : actualDelay;
 
 
         var isTarget = user != target;
@@ -282,8 +282,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private bool TryInject(Entity<InjectorComponent> injector, EntityUid targetEntity,
         Entity<SolutionComponent> targetSolution, EntityUid user, bool asRefill)
     {
-        if (HasComp<BlockInjectionComponent>(targetEntity))  // DeltaV
-            return;
+        if (TryComp<BlockInjectionComponent>(targetEntity, out var _))  // DeltaV
+            return false;
 
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var soln,
                 out var solution) || solution.Volume == 0)

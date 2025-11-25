@@ -28,7 +28,6 @@
           False: { visible: false }
   - type: InteractionOutline
   - type: WorldLoader
-          radius: 64
   - type: Physics
     bodyType: Static
   - type: Transform

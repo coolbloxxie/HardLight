@@ -28,12 +28,13 @@
     - Harpy # DeltaV
     - Felinid # DeltaV
     - Oni # DeltaV
+    - Chitinid # DeltaV
     - Feroxi # Flooftier
     - Resomi
     - Protogen # Monolith
     - Avali
     - Feroxi
-    - Kitsune
+    - Kitsune # DeltaV
 
 - type: guideEntry
   id: Arachnid
@@ -70,6 +71,18 @@
   name: species-name-slime
   text: "/ServerInfo/Guidebook/Mobs/SlimePerson.xml"
 
+# DeltaV
+
+- type: guideEntry
+  id: Kitsune
+  name: species-name-kitsune
+  text: "/ServerInfo/Guidebook/Mobs/_DV/Kitsune.xml" # DeltaV
+
+- type: guideEntry
+  id: Chitinid
+  name: species-name-chitinid
+  text: "/ServerInfo/Guidebook/Mobs/_DV/Chitinid.xml" # DeltaV
+
 # Goobstation
 - type: guideEntry
   id: Vox
@@ -85,9 +98,6 @@
   id: Resomi
   name: species-name-resomi
   text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
-  id: Shadowkin
-  name: species-name-shadowkin
-  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
 
 - type: guideEntry
   id: Harpy

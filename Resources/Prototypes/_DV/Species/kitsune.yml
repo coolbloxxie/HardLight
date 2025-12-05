@@ -13,20 +13,20 @@
   onlyWhitelisted: false
   points:
     Hair:
-      points: 3
+      points: 1
       required: false
     FacialHair:
-      points: 3
+      points: 1
       required: false
     Snout:
-      points: 3
+      points: 1
       required: false
     Tail:
       points: 1
       required: true
       defaultMarkings: [ KitsuneTailDefault ]
     HeadTop:
-      points: 3
+      points: 1
       required: true
       defaultMarkings: [ KitsuneEarsDefault ]
     UndergarmentTop:

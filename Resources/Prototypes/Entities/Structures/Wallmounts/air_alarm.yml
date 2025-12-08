@@ -118,6 +118,13 @@
     - DeviceMonitoringAndControl
 
 - type: entity
+  parent: AirAlarm
+  id: ScienceAirAlarm
+  suffix: Science
+  - type: AccessReader
+    access: [["Atmospherics"], ["Captain"], ["Research"]]
+
+- type: entity
   id: AirAlarmAssembly
   name: air alarm assembly
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.

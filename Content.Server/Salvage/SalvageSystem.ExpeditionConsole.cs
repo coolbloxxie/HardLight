@@ -288,8 +288,9 @@ public sealed partial class SalvageSystem
                 return;
             }
 
-            // Mark expedition as completed
-            expComp.Completed = true;
+            // Do NOT mark as completed here; reward should only be granted
+            // when mission objectives are actually complete. The runner logic
+            // updates expComp.Completed based on objectives.
 
             // Trigger the same FTL process as normal expedition timeout
             TriggerExpeditionFTLHome(expeditionMapUid.Value, expComp);
@@ -414,6 +415,14 @@ public sealed partial class SalvageSystem
             );
             _ui.SetUiState(uid, SalvageConsoleUiKey.Expedition, emptyState);
             return;
+        }
+
+        // Sanitize ActiveMission against current mission list to avoid UI/index errors
+        if (data.ActiveMission != 0 && !data.Missions.ContainsKey(data.ActiveMission))
+        {
+            Log.Warning($"Console {ToPrettyString(uid)} had ActiveMission={data.ActiveMission} not in mission list; resetting.");
+            data.ActiveMission = 0;
+            data.CanFinish = false;
         }
 
         // HARDLIGHT: Only generate missions if truly needed and not already generating

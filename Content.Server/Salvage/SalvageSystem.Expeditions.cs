@@ -36,7 +36,7 @@ public sealed partial class SalvageSystem
     private readonly JobQueue _salvageQueue = new();
     private readonly List<(SpawnSalvageMissionJob Job, CancellationTokenSource CancelToken)> _salvageJobs = new();
     private const double SalvageJobTime = 0.002;
-    private readonly List<(ProtoId<SalvageDifficultyPrototype> id, int value)> _missionDifficulties = [("NFModerate", 0), ("NFHazardous", 1), ("NFExtreme", 2)]; // Frontier: mission difficulties with order
+    private readonly List<(ProtoId<SalvageDifficultyPrototype> id, int value)> _missionDifficulties = [("NFEasy", 0),("NFModerate", 1), ("NFHazardous", 2),("NFExtreme", 3), ("NFNightmare", 4)]; // Frontier: mission difficulties with order
 
     [Dependency] private readonly IConfigurationManager _cfgManager = default!; // Frontier
 
@@ -255,9 +255,11 @@ public sealed partial class SalvageSystem
         var diffId = expeditionComp.MissionParams.Difficulty.ToString();
         string rewardProto = diffId switch
         {
-            "NFModerate" => "SpaceCashExpeditionT1",
-            "NFHazardous" => "SpaceCashExpeditionT2",
-            "NFExtreme" => "SpaceCashExpeditionT3",
+            "NFEasy" => "SpaceCashExpeditionT1",
+            "NFModerate" => "SpaceCashExpeditionT2",
+            "NFHazardous" => "SpaceCashExpeditionT3",
+            "NFExtreme" => "SpaceCashExpeditionT4",
+            "NFNightmare" => "SpaceCashExpeditionT5",
             _ => "SpaceCashExpeditionT1"
         };
 
@@ -314,7 +316,8 @@ public sealed partial class SalvageSystem
                 var mission = new SalvageMissionParams
                 {
                     Index = (ushort)missionIndex,
-                    MissionType = (SalvageMissionType)_random.NextByte((byte)SalvageMissionType.Max + 1), // Frontier
+                    // Pick a valid mission type; Max is a sentinel and must be excluded.
+                    MissionType = (SalvageMissionType)_random.NextByte((byte)SalvageMissionType.Max),
                     Seed = _random.Next(),
                     Difficulty = difficulties[i].id,
                 };
